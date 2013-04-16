@@ -3,19 +3,19 @@ part of blogger_v2_api_client;
 class Blog {
 
   /** The description of this blog. This is displayed underneath the title. */
-  String description;
+  core.String description;
 
   /** The identifier for this resource. */
-  String id;
+  core.String id;
 
   /** The kind of this entry. Always blogger#blog */
-  String kind;
+  core.String kind;
 
   /** The locale this Blog is set to. */
   BlogLocale locale;
 
   /** The name of this blog. This is displayed as the title. */
-  String name;
+  core.String name;
 
   /** The container of pages in this blog. */
   BlogPages pages;
@@ -24,19 +24,19 @@ class Blog {
   BlogPosts posts;
 
   /** RFC 3339 date-time when this blog was published. */
-  String published;
+  core.String published;
 
   /** The API REST URL to fetch this resource from. */
-  String selfLink;
+  core.String selfLink;
 
   /** RFC 3339 date-time when this blog was last updated. */
-  String updated;
+  core.String updated;
 
   /** The URL where this blog is published. */
-  String url;
+  core.String url;
 
   /** Create new Blog from JSON data */
-  Blog.fromJson(Map json) {
+  Blog.fromJson(core.Map json) {
     if (json.containsKey("description")) {
       description = json["description"];
     }
@@ -73,8 +73,8 @@ class Blog {
   }
 
   /** Create JSON Object for Blog */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (description != null) {
       output["description"] = description;
@@ -114,7 +114,7 @@ class Blog {
   }
 
   /** Return String representation of Blog */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -122,13 +122,13 @@ class Blog {
 class BlogPages {
 
   /** The URL of the container for pages in this blog. */
-  String selfLink;
+  core.String selfLink;
 
   /** The count of pages in this blog. */
-  int totalItems;
+  core.int totalItems;
 
   /** Create new BlogPages from JSON data */
-  BlogPages.fromJson(Map json) {
+  BlogPages.fromJson(core.Map json) {
     if (json.containsKey("selfLink")) {
       selfLink = json["selfLink"];
     }
@@ -138,8 +138,8 @@ class BlogPages {
   }
 
   /** Create JSON Object for BlogPages */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (selfLink != null) {
       output["selfLink"] = selfLink;
@@ -152,7 +152,7 @@ class BlogPages {
   }
 
   /** Return String representation of BlogPages */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -160,16 +160,16 @@ class BlogPages {
 class BlogLocale {
 
   /** The country this blog's locale is set to. */
-  String country;
+  core.String country;
 
   /** The language this blog is authored in. */
-  String language;
+  core.String language;
 
   /** The language variant this blog is authored in. */
-  String variant;
+  core.String variant;
 
   /** Create new BlogLocale from JSON data */
-  BlogLocale.fromJson(Map json) {
+  BlogLocale.fromJson(core.Map json) {
     if (json.containsKey("country")) {
       country = json["country"];
     }
@@ -182,8 +182,8 @@ class BlogLocale {
   }
 
   /** Create JSON Object for BlogLocale */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (country != null) {
       output["country"] = country;
@@ -199,7 +199,7 @@ class BlogLocale {
   }
 
   /** Return String representation of BlogLocale */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -207,13 +207,13 @@ class BlogLocale {
 class BlogPosts {
 
   /** The URL of the container for posts in this blog. */
-  String selfLink;
+  core.String selfLink;
 
   /** The count of posts in this blog. */
-  int totalItems;
+  core.int totalItems;
 
   /** Create new BlogPosts from JSON data */
-  BlogPosts.fromJson(Map json) {
+  BlogPosts.fromJson(core.Map json) {
     if (json.containsKey("selfLink")) {
       selfLink = json["selfLink"];
     }
@@ -223,8 +223,8 @@ class BlogPosts {
   }
 
   /** Create JSON Object for BlogPosts */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (selfLink != null) {
       output["selfLink"] = selfLink;
@@ -237,20 +237,20 @@ class BlogPosts {
   }
 
   /** Return String representation of BlogPosts */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class BlogList {
 
   /** The list of Blogs this user has Authorship or Admin rights over. */
-  List<Blog> items;
+  core.List<Blog> items;
 
   /** The kind of this entity. Always blogger#blogList */
-  String kind;
+  core.String kind;
 
   /** Create new BlogList from JSON data */
-  BlogList.fromJson(Map json) {
+  BlogList.fromJson(core.Map json) {
     if (json.containsKey("items")) {
       items = [];
       json["items"].forEach((item) {
@@ -263,11 +263,11 @@ class BlogList {
   }
 
   /** Create JSON Object for BlogList */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new List();
+      output["items"] = new core.List();
       items.forEach((item) {
         output["items"].add(item.toJson());
       });
@@ -280,7 +280,7 @@ class BlogList {
   }
 
   /** Return String representation of BlogList */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -293,31 +293,31 @@ class Comment {
   CommentBlog blog;
 
   /** The actual content of the comment. May include HTML markup. */
-  String content;
+  core.String content;
 
   /** The identifier for this resource. */
-  String id;
+  core.String id;
 
   /** Data about the comment this is in reply to. */
   CommentInReplyTo inReplyTo;
 
   /** The kind of this entry. Always blogger#comment */
-  String kind;
+  core.String kind;
 
   /** Data about the post containing this comment. */
   CommentPost post;
 
   /** RFC 3339 date-time when this comment was published. */
-  String published;
+  core.String published;
 
   /** The API REST URL to fetch this resource from. */
-  String selfLink;
+  core.String selfLink;
 
   /** RFC 3339 date-time when this comment was last updated. */
-  String updated;
+  core.String updated;
 
   /** Create new Comment from JSON data */
-  Comment.fromJson(Map json) {
+  Comment.fromJson(core.Map json) {
     if (json.containsKey("author")) {
       author = new CommentAuthor.fromJson(json["author"]);
     }
@@ -351,8 +351,8 @@ class Comment {
   }
 
   /** Create JSON Object for Comment */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (author != null) {
       output["author"] = author.toJson();
@@ -389,7 +389,7 @@ class Comment {
   }
 
   /** Return String representation of Comment */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -397,18 +397,18 @@ class Comment {
 class CommentPost {
 
   /** The identifier of the post containing this comment. */
-  String id;
+  core.String id;
 
   /** Create new CommentPost from JSON data */
-  CommentPost.fromJson(Map json) {
+  CommentPost.fromJson(core.Map json) {
     if (json.containsKey("id")) {
       id = json["id"];
     }
   }
 
   /** Create JSON Object for CommentPost */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (id != null) {
       output["id"] = id;
@@ -418,7 +418,7 @@ class CommentPost {
   }
 
   /** Return String representation of CommentPost */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -426,18 +426,18 @@ class CommentPost {
 class CommentInReplyTo {
 
   /** The identified of the parent of this comment. */
-  String id;
+  core.String id;
 
   /** Create new CommentInReplyTo from JSON data */
-  CommentInReplyTo.fromJson(Map json) {
+  CommentInReplyTo.fromJson(core.Map json) {
     if (json.containsKey("id")) {
       id = json["id"];
     }
   }
 
   /** Create JSON Object for CommentInReplyTo */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (id != null) {
       output["id"] = id;
@@ -447,7 +447,7 @@ class CommentInReplyTo {
   }
 
   /** Return String representation of CommentInReplyTo */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -455,19 +455,19 @@ class CommentInReplyTo {
 class CommentAuthor {
 
   /** The display name. */
-  String displayName;
+  core.String displayName;
 
   /** The identifier of the Comment creator. */
-  String id;
+  core.String id;
 
   /** The comment creator's avatar. */
   CommentAuthorImage image;
 
   /** The URL of the Comment creator's Profile page. */
-  String url;
+  core.String url;
 
   /** Create new CommentAuthor from JSON data */
-  CommentAuthor.fromJson(Map json) {
+  CommentAuthor.fromJson(core.Map json) {
     if (json.containsKey("displayName")) {
       displayName = json["displayName"];
     }
@@ -483,8 +483,8 @@ class CommentAuthor {
   }
 
   /** Create JSON Object for CommentAuthor */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (displayName != null) {
       output["displayName"] = displayName;
@@ -503,7 +503,7 @@ class CommentAuthor {
   }
 
   /** Return String representation of CommentAuthor */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -511,18 +511,18 @@ class CommentAuthor {
 class CommentAuthorImage {
 
   /** The comment creator's avatar URL. */
-  String url;
+  core.String url;
 
   /** Create new CommentAuthorImage from JSON data */
-  CommentAuthorImage.fromJson(Map json) {
+  CommentAuthorImage.fromJson(core.Map json) {
     if (json.containsKey("url")) {
       url = json["url"];
     }
   }
 
   /** Create JSON Object for CommentAuthorImage */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (url != null) {
       output["url"] = url;
@@ -532,7 +532,7 @@ class CommentAuthorImage {
   }
 
   /** Return String representation of CommentAuthorImage */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -540,18 +540,18 @@ class CommentAuthorImage {
 class CommentBlog {
 
   /** The identifier of the blog containing this comment. */
-  String id;
+  core.String id;
 
   /** Create new CommentBlog from JSON data */
-  CommentBlog.fromJson(Map json) {
+  CommentBlog.fromJson(core.Map json) {
     if (json.containsKey("id")) {
       id = json["id"];
     }
   }
 
   /** Create JSON Object for CommentBlog */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (id != null) {
       output["id"] = id;
@@ -561,26 +561,26 @@ class CommentBlog {
   }
 
   /** Return String representation of CommentBlog */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class CommentList {
 
   /** The List of Comments for a Post. */
-  List<Comment> items;
+  core.List<Comment> items;
 
   /** The kind of this entry. Always blogger#commentList */
-  String kind;
+  core.String kind;
 
   /** Pagination token to fetch the next page, if one exists. */
-  String nextPageToken;
+  core.String nextPageToken;
 
   /** Pagination token to fetch the previous page, if one exists. */
-  String prevPageToken;
+  core.String prevPageToken;
 
   /** Create new CommentList from JSON data */
-  CommentList.fromJson(Map json) {
+  CommentList.fromJson(core.Map json) {
     if (json.containsKey("items")) {
       items = [];
       json["items"].forEach((item) {
@@ -599,11 +599,11 @@ class CommentList {
   }
 
   /** Create JSON Object for CommentList */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new List();
+      output["items"] = new core.List();
       items.forEach((item) {
         output["items"].add(item.toJson());
       });
@@ -622,7 +622,7 @@ class CommentList {
   }
 
   /** Return String representation of CommentList */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -635,31 +635,31 @@ class Page {
   PageBlog blog;
 
   /** The body content of this Page, in HTML. */
-  String content;
+  core.String content;
 
   /** The identifier for this resource. */
-  String id;
+  core.String id;
 
   /** The kind of this entity. Always blogger#page */
-  String kind;
+  core.String kind;
 
   /** RFC 3339 date-time when this Page was published. */
-  String published;
+  core.String published;
 
   /** The API REST URL to fetch this resource from. */
-  String selfLink;
+  core.String selfLink;
 
   /** The title of this entity. This is the name displayed in the Admin user interface. */
-  String title;
+  core.String title;
 
   /** RFC 3339 date-time when this Page was last updated. */
-  String updated;
+  core.String updated;
 
   /** The URL that this Page is displayed at. */
-  String url;
+  core.String url;
 
   /** Create new Page from JSON data */
-  Page.fromJson(Map json) {
+  Page.fromJson(core.Map json) {
     if (json.containsKey("author")) {
       author = new PageAuthor.fromJson(json["author"]);
     }
@@ -693,8 +693,8 @@ class Page {
   }
 
   /** Create JSON Object for Page */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (author != null) {
       output["author"] = author.toJson();
@@ -731,7 +731,7 @@ class Page {
   }
 
   /** Return String representation of Page */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -739,18 +739,18 @@ class Page {
 class PageBlog {
 
   /** The identifier of the blog containing this page. */
-  String id;
+  core.String id;
 
   /** Create new PageBlog from JSON data */
-  PageBlog.fromJson(Map json) {
+  PageBlog.fromJson(core.Map json) {
     if (json.containsKey("id")) {
       id = json["id"];
     }
   }
 
   /** Create JSON Object for PageBlog */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (id != null) {
       output["id"] = id;
@@ -760,7 +760,7 @@ class PageBlog {
   }
 
   /** Return String representation of PageBlog */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -768,19 +768,19 @@ class PageBlog {
 class PageAuthor {
 
   /** The display name. */
-  String displayName;
+  core.String displayName;
 
   /** The identifier of the Page creator. */
-  String id;
+  core.String id;
 
   /** The page author's avatar. */
   PageAuthorImage image;
 
   /** The URL of the Page creator's Profile page. */
-  String url;
+  core.String url;
 
   /** Create new PageAuthor from JSON data */
-  PageAuthor.fromJson(Map json) {
+  PageAuthor.fromJson(core.Map json) {
     if (json.containsKey("displayName")) {
       displayName = json["displayName"];
     }
@@ -796,8 +796,8 @@ class PageAuthor {
   }
 
   /** Create JSON Object for PageAuthor */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (displayName != null) {
       output["displayName"] = displayName;
@@ -816,7 +816,7 @@ class PageAuthor {
   }
 
   /** Return String representation of PageAuthor */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -824,18 +824,18 @@ class PageAuthor {
 class PageAuthorImage {
 
   /** The page author's avatar URL. */
-  String url;
+  core.String url;
 
   /** Create new PageAuthorImage from JSON data */
-  PageAuthorImage.fromJson(Map json) {
+  PageAuthorImage.fromJson(core.Map json) {
     if (json.containsKey("url")) {
       url = json["url"];
     }
   }
 
   /** Create JSON Object for PageAuthorImage */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (url != null) {
       output["url"] = url;
@@ -845,20 +845,20 @@ class PageAuthorImage {
   }
 
   /** Return String representation of PageAuthorImage */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class PageList {
 
   /** The list of Pages for a Blog. */
-  List<Page> items;
+  core.List<Page> items;
 
   /** The kind of this entity. Always blogger#pageList */
-  String kind;
+  core.String kind;
 
   /** Create new PageList from JSON data */
-  PageList.fromJson(Map json) {
+  PageList.fromJson(core.Map json) {
     if (json.containsKey("items")) {
       items = [];
       json["items"].forEach((item) {
@@ -871,11 +871,11 @@ class PageList {
   }
 
   /** Create JSON Object for PageList */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new List();
+      output["items"] = new core.List();
       items.forEach((item) {
         output["items"].add(item.toJson());
       });
@@ -888,7 +888,7 @@ class PageList {
   }
 
   /** Return String representation of PageList */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -901,37 +901,37 @@ class Post {
   PostBlog blog;
 
   /** The content of the Post. May contain HTML markup. */
-  String content;
+  core.String content;
 
   /** The identifier of this Post. */
-  String id;
+  core.String id;
 
   /** The kind of this entity. Always blogger#post */
-  String kind;
+  core.String kind;
 
   /** The list of labels this Post was tagged with. */
-  List<String> labels;
+  core.List<core.String> labels;
 
   /** RFC 3339 date-time when this Post was published. */
-  String published;
+  core.String published;
 
   /** The container of comments on this Post. */
   PostReplies replies;
 
   /** The API REST URL to fetch this resource from. */
-  String selfLink;
+  core.String selfLink;
 
   /** The title of the Post. */
-  String title;
+  core.String title;
 
   /** RFC 3339 date-time when this Post was last updated. */
-  String updated;
+  core.String updated;
 
   /** The URL where this Post is displayed. */
-  String url;
+  core.String url;
 
   /** Create new Post from JSON data */
-  Post.fromJson(Map json) {
+  Post.fromJson(core.Map json) {
     if (json.containsKey("author")) {
       author = new PostAuthor.fromJson(json["author"]);
     }
@@ -974,8 +974,8 @@ class Post {
   }
 
   /** Create JSON Object for Post */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (author != null) {
       output["author"] = author.toJson();
@@ -993,7 +993,7 @@ class Post {
       output["kind"] = kind;
     }
     if (labels != null) {
-      output["labels"] = new List();
+      output["labels"] = new core.List();
       labels.forEach((item) {
         output["labels"].add(item);
       });
@@ -1021,7 +1021,7 @@ class Post {
   }
 
   /** Return String representation of Post */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1029,18 +1029,18 @@ class Post {
 class PostBlog {
 
   /** The identifier of the Blog that contains this Post. */
-  String id;
+  core.String id;
 
   /** Create new PostBlog from JSON data */
-  PostBlog.fromJson(Map json) {
+  PostBlog.fromJson(core.Map json) {
     if (json.containsKey("id")) {
       id = json["id"];
     }
   }
 
   /** Create JSON Object for PostBlog */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (id != null) {
       output["id"] = id;
@@ -1050,7 +1050,7 @@ class PostBlog {
   }
 
   /** Return String representation of PostBlog */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1058,19 +1058,19 @@ class PostBlog {
 class PostAuthor {
 
   /** The display name. */
-  String displayName;
+  core.String displayName;
 
   /** The identifier of the Post creator. */
-  String id;
+  core.String id;
 
   /** The Post author's avatar. */
   PostAuthorImage image;
 
   /** The URL of the Post creator's Profile page. */
-  String url;
+  core.String url;
 
   /** Create new PostAuthor from JSON data */
-  PostAuthor.fromJson(Map json) {
+  PostAuthor.fromJson(core.Map json) {
     if (json.containsKey("displayName")) {
       displayName = json["displayName"];
     }
@@ -1086,8 +1086,8 @@ class PostAuthor {
   }
 
   /** Create JSON Object for PostAuthor */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (displayName != null) {
       output["displayName"] = displayName;
@@ -1106,7 +1106,7 @@ class PostAuthor {
   }
 
   /** Return String representation of PostAuthor */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1114,18 +1114,18 @@ class PostAuthor {
 class PostAuthorImage {
 
   /** The Post author's avatar URL. */
-  String url;
+  core.String url;
 
   /** Create new PostAuthorImage from JSON data */
-  PostAuthorImage.fromJson(Map json) {
+  PostAuthorImage.fromJson(core.Map json) {
     if (json.containsKey("url")) {
       url = json["url"];
     }
   }
 
   /** Create JSON Object for PostAuthorImage */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (url != null) {
       output["url"] = url;
@@ -1135,7 +1135,7 @@ class PostAuthorImage {
   }
 
   /** Return String representation of PostAuthorImage */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1143,13 +1143,13 @@ class PostAuthorImage {
 class PostReplies {
 
   /** The URL of the comments on this post. */
-  String selfLink;
+  core.String selfLink;
 
   /** The count of comments on this post. */
-  String totalItems;
+  core.String totalItems;
 
   /** Create new PostReplies from JSON data */
-  PostReplies.fromJson(Map json) {
+  PostReplies.fromJson(core.Map json) {
     if (json.containsKey("selfLink")) {
       selfLink = json["selfLink"];
     }
@@ -1159,8 +1159,8 @@ class PostReplies {
   }
 
   /** Create JSON Object for PostReplies */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (selfLink != null) {
       output["selfLink"] = selfLink;
@@ -1173,26 +1173,26 @@ class PostReplies {
   }
 
   /** Return String representation of PostReplies */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class PostList {
 
   /** The list of Posts for this Blog. */
-  List<Post> items;
+  core.List<Post> items;
 
   /** The kind of this entity. Always blogger#postList */
-  String kind;
+  core.String kind;
 
   /** Pagination token to fetch the next page, if one exists. */
-  String nextPageToken;
+  core.String nextPageToken;
 
   /** Pagination token to fetch the previous page, if one exists. */
-  String prevPageToken;
+  core.String prevPageToken;
 
   /** Create new PostList from JSON data */
-  PostList.fromJson(Map json) {
+  PostList.fromJson(core.Map json) {
     if (json.containsKey("items")) {
       items = [];
       json["items"].forEach((item) {
@@ -1211,11 +1211,11 @@ class PostList {
   }
 
   /** Create JSON Object for PostList */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new List();
+      output["items"] = new core.List();
       items.forEach((item) {
         output["items"].add(item.toJson());
       });
@@ -1234,41 +1234,41 @@ class PostList {
   }
 
   /** Return String representation of PostList */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class User {
 
   /** Profile summary information. */
-  String about;
+  core.String about;
 
   /** The container of blogs for this user. */
   UserBlogs blogs;
 
   /** The timestamp of when this profile was created, in seconds since epoch. */
-  String created;
+  core.String created;
 
   /** The display name. */
-  String displayName;
+  core.String displayName;
 
   /** The identifier for this User. */
-  String id;
+  core.String id;
 
   /** The kind of this entity. Always blogger#user */
-  String kind;
+  core.String kind;
 
   /** This user's locale */
   UserLocale locale;
 
   /** The API REST URL to fetch this resource from. */
-  String selfLink;
+  core.String selfLink;
 
   /** The user's profile page. */
-  String url;
+  core.String url;
 
   /** Create new User from JSON data */
-  User.fromJson(Map json) {
+  User.fromJson(core.Map json) {
     if (json.containsKey("about")) {
       about = json["about"];
     }
@@ -1299,8 +1299,8 @@ class User {
   }
 
   /** Create JSON Object for User */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (about != null) {
       output["about"] = about;
@@ -1334,7 +1334,7 @@ class User {
   }
 
   /** Return String representation of User */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1342,18 +1342,18 @@ class User {
 class UserBlogs {
 
   /** The URL of the Blogs for this user. */
-  String selfLink;
+  core.String selfLink;
 
   /** Create new UserBlogs from JSON data */
-  UserBlogs.fromJson(Map json) {
+  UserBlogs.fromJson(core.Map json) {
     if (json.containsKey("selfLink")) {
       selfLink = json["selfLink"];
     }
   }
 
   /** Create JSON Object for UserBlogs */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (selfLink != null) {
       output["selfLink"] = selfLink;
@@ -1363,7 +1363,7 @@ class UserBlogs {
   }
 
   /** Return String representation of UserBlogs */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1371,16 +1371,16 @@ class UserBlogs {
 class UserLocale {
 
   /** The user's country setting. */
-  String country;
+  core.String country;
 
   /** The user's language setting. */
-  String language;
+  core.String language;
 
   /** The user's language variant setting. */
-  String variant;
+  core.String variant;
 
   /** Create new UserLocale from JSON data */
-  UserLocale.fromJson(Map json) {
+  UserLocale.fromJson(core.Map json) {
     if (json.containsKey("country")) {
       country = json["country"];
     }
@@ -1393,8 +1393,8 @@ class UserLocale {
   }
 
   /** Create JSON Object for UserLocale */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (country != null) {
       output["country"] = country;
@@ -1410,7 +1410,7 @@ class UserLocale {
   }
 
   /** Return String representation of UserLocale */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
