@@ -1,8 +1,8 @@
 part of blogger_v2_api_client;
 
-class BlogsResource extends Resource {
+class BlogsResource_ extends Resource {
 
-  BlogsResource(Client client) : super(client) {
+  BlogsResource_(Client client) : super(client) {
   }
 
   /**
@@ -30,7 +30,7 @@ class BlogsResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -43,9 +43,9 @@ class BlogsResource extends Resource {
   }
 }
 
-class CommentsResource extends Resource {
+class CommentsResource_ extends Resource {
 
-  CommentsResource(Client client) : super(client) {
+  CommentsResource_(Client client) : super(client) {
   }
 
   /**
@@ -81,7 +81,7 @@ class CommentsResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -134,7 +134,7 @@ class CommentsResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -147,9 +147,9 @@ class CommentsResource extends Resource {
   }
 }
 
-class PagesResource extends Resource {
+class PagesResource_ extends Resource {
 
-  PagesResource(Client client) : super(client) {
+  PagesResource_(Client client) : super(client) {
   }
 
   /**
@@ -181,7 +181,7 @@ class PagesResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -221,7 +221,7 @@ class PagesResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -234,9 +234,9 @@ class PagesResource extends Resource {
   }
 }
 
-class PostsResource extends Resource {
+class PostsResource_ extends Resource {
 
-  PostsResource(Client client) : super(client) {
+  PostsResource_(Client client) : super(client) {
   }
 
   /**
@@ -268,7 +268,7 @@ class PostsResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -317,7 +317,7 @@ class PostsResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -330,13 +330,13 @@ class PostsResource extends Resource {
   }
 }
 
-class UsersResource extends Resource {
+class UsersResource_ extends Resource {
 
-  UsersBlogsResource _blogs;
-  UsersBlogsResource get blogs => _blogs;
+  UsersBlogsResource_ _blogs;
+  UsersBlogsResource_ get blogs => _blogs;
 
-  UsersResource(Client client) : super(client) {
-  _blogs = new UsersBlogsResource(client);
+  UsersResource_(Client client) : super(client) {
+  _blogs = new UsersBlogsResource_(client);
   }
 
   /**
@@ -364,7 +364,7 @@ class UsersResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -377,9 +377,9 @@ class UsersResource extends Resource {
   }
 }
 
-class UsersBlogsResource extends Resource {
+class UsersBlogsResource_ extends Resource {
 
-  UsersBlogsResource(Client client) : super(client) {
+  UsersBlogsResource_(Client client) : super(client) {
   }
 
   /**
@@ -407,7 +407,7 @@ class UsersBlogsResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
