@@ -6,7 +6,7 @@ class Blog {
   core.String description;
 
   /** The identifier for this resource. */
-  core.String id;
+  core.int id;
 
   /** The kind of this entry. Always blogger#blog */
   core.String kind;
@@ -296,7 +296,7 @@ class Comment {
   core.String content;
 
   /** The identifier for this resource. */
-  core.String id;
+  core.int id;
 
   /** Data about the comment this is in reply to. */
   CommentInReplyTo inReplyTo;
@@ -397,7 +397,7 @@ class Comment {
 class CommentPost {
 
   /** The identifier of the post containing this comment. */
-  core.String id;
+  core.int id;
 
   /** Create new CommentPost from JSON data */
   CommentPost.fromJson(core.Map json) {
@@ -426,7 +426,7 @@ class CommentPost {
 class CommentInReplyTo {
 
   /** The identified of the parent of this comment. */
-  core.String id;
+  core.int id;
 
   /** Create new CommentInReplyTo from JSON data */
   CommentInReplyTo.fromJson(core.Map json) {
@@ -540,7 +540,7 @@ class CommentAuthorImage {
 class CommentBlog {
 
   /** The identifier of the blog containing this comment. */
-  core.String id;
+  core.int id;
 
   /** Create new CommentBlog from JSON data */
   CommentBlog.fromJson(core.Map json) {
@@ -638,7 +638,7 @@ class Page {
   core.String content;
 
   /** The identifier for this resource. */
-  core.String id;
+  core.int id;
 
   /** The kind of this entity. Always blogger#page */
   core.String kind;
@@ -739,7 +739,7 @@ class Page {
 class PageBlog {
 
   /** The identifier of the blog containing this page. */
-  core.String id;
+  core.int id;
 
   /** Create new PageBlog from JSON data */
   PageBlog.fromJson(core.Map json) {
@@ -904,7 +904,7 @@ class Post {
   core.String content;
 
   /** The identifier of this Post. */
-  core.String id;
+  core.int id;
 
   /** The kind of this entity. Always blogger#post */
   core.String kind;
@@ -1029,7 +1029,7 @@ class Post {
 class PostBlog {
 
   /** The identifier of the Blog that contains this Post. */
-  core.String id;
+  core.int id;
 
   /** Create new PostBlog from JSON data */
   PostBlog.fromJson(core.Map json) {
@@ -1146,7 +1146,7 @@ class PostReplies {
   core.String selfLink;
 
   /** The count of comments on this post. */
-  core.String totalItems;
+  core.int totalItems;
 
   /** Create new PostReplies from JSON data */
   PostReplies.fromJson(core.Map json) {
