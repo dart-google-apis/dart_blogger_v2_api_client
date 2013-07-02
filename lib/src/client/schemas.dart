@@ -41,7 +41,11 @@ class Blog {
       description = json["description"];
     }
     if (json.containsKey("id")) {
-      id = json["id"];
+      if(json["id"] is core.String){
+        id = core.int.parse(json["id"]);
+      }else{
+        id = json["id"];
+      }
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -328,7 +332,11 @@ class Comment {
       content = json["content"];
     }
     if (json.containsKey("id")) {
-      id = json["id"];
+      if(json["id"] is core.String){
+        id = core.int.parse(json["id"]);
+      }else{
+        id = json["id"];
+      }
     }
     if (json.containsKey("inReplyTo")) {
       inReplyTo = new CommentInReplyTo.fromJson(json["inReplyTo"]);
@@ -402,7 +410,11 @@ class CommentPost {
   /** Create new CommentPost from JSON data */
   CommentPost.fromJson(core.Map json) {
     if (json.containsKey("id")) {
-      id = json["id"];
+      if(json["id"] is core.String){
+        id = core.int.parse(json["id"]);
+      }else{
+        id = json["id"];
+      }
     }
   }
 
@@ -431,7 +443,11 @@ class CommentInReplyTo {
   /** Create new CommentInReplyTo from JSON data */
   CommentInReplyTo.fromJson(core.Map json) {
     if (json.containsKey("id")) {
-      id = json["id"];
+      if(json["id"] is core.String){
+        id = core.int.parse(json["id"]);
+      }else{
+        id = json["id"];
+      }
     }
   }
 
@@ -545,7 +561,11 @@ class CommentBlog {
   /** Create new CommentBlog from JSON data */
   CommentBlog.fromJson(core.Map json) {
     if (json.containsKey("id")) {
-      id = json["id"];
+      if(json["id"] is core.String){
+        id = core.int.parse(json["id"]);
+      }else{
+        id = json["id"];
+      }
     }
   }
 
@@ -670,7 +690,11 @@ class Page {
       content = json["content"];
     }
     if (json.containsKey("id")) {
-      id = json["id"];
+      if(json["id"] is core.String){
+        id = core.int.parse(json["id"]);
+      }else{
+        id = json["id"];
+      }
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -744,7 +768,11 @@ class PageBlog {
   /** Create new PageBlog from JSON data */
   PageBlog.fromJson(core.Map json) {
     if (json.containsKey("id")) {
-      id = json["id"];
+      if(json["id"] is core.String){
+        id = core.int.parse(json["id"]);
+      }else{
+        id = json["id"];
+      }
     }
   }
 
@@ -942,7 +970,11 @@ class Post {
       content = json["content"];
     }
     if (json.containsKey("id")) {
-      id = json["id"];
+      if(json["id"] is core.String){
+        id = core.int.parse(json["id"]);
+      }else{
+        id = json["id"];
+      }
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -1034,7 +1066,11 @@ class PostBlog {
   /** Create new PostBlog from JSON data */
   PostBlog.fromJson(core.Map json) {
     if (json.containsKey("id")) {
-      id = json["id"];
+      if(json["id"] is core.String){
+        id = core.int.parse(json["id"]);
+      }else{
+        id = json["id"];
+      }
     }
   }
 
@@ -1154,7 +1190,11 @@ class PostReplies {
       selfLink = json["selfLink"];
     }
     if (json.containsKey("totalItems")) {
-      totalItems = json["totalItems"];
+      if(json["totalItems"] is core.String){
+        totalItems = core.int.parse(json["totalItems"]);
+      }else{
+        totalItems = json["totalItems"];
+      }
     }
   }
 
