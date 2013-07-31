@@ -1,14 +1,17 @@
-library blogger_v2_api_browser;
+library blogger_v2_api.browser;
 
-import "blogger_v2_api_client.dart";
-export "blogger_v2_api_client.dart";
-
-import "dart:core" as core;
-import "dart:html" as html;
-import "dart:async" as async;
-import "dart:json" as JSON;
-import "package:js/js.dart" as js;
 import "package:google_oauth2_client/google_oauth2_browser.dart" as oauth;
 
-part "src/browser/browser_client.dart";
-part "src/browser/blogger.dart";
+import 'package:google_blogger_v2_api/src/cloud_api_browser.dart';
+import "package:google_blogger_v2_api/blogger_v2_api_client.dart";
+
+/** API for access to the data within Blogger. */
+class Blogger extends Client with BrowserClient {
+
+  /** OAuth Scope2: Manage your Blogger account */
+  static const String BLOGGER_SCOPE = "https://www.googleapis.com/auth/blogger";
+
+  final oauth.OAuth2 auth;
+
+  Blogger([oauth.OAuth2 this.auth]);
+}

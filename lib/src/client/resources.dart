@@ -1,9 +1,11 @@
-part of blogger_v2_api_client;
+part of blogger_v2_api;
 
-class BlogsResource_ extends Resource {
+class BlogsResource_ {
 
-  BlogsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  BlogsResource_(Client client) :
+      _client = client;
 
   /**
    * Gets one blog by id.
@@ -39,10 +41,12 @@ class BlogsResource_ extends Resource {
   }
 }
 
-class CommentsResource_ extends Resource {
+class CommentsResource_ {
 
-  CommentsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  CommentsResource_(Client client) :
+      _client = client;
 
   /**
    * Gets one comment by id.
@@ -135,10 +139,12 @@ class CommentsResource_ extends Resource {
   }
 }
 
-class PagesResource_ extends Resource {
+class PagesResource_ {
 
-  PagesResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  PagesResource_(Client client) :
+      _client = client;
 
   /**
    * Gets one blog page by id.
@@ -214,10 +220,12 @@ class PagesResource_ extends Resource {
   }
 }
 
-class PostsResource_ extends Resource {
+class PostsResource_ {
 
-  PostsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  PostsResource_(Client client) :
+      _client = client;
 
   /**
    * Get a post by id.
@@ -302,14 +310,15 @@ class PostsResource_ extends Resource {
   }
 }
 
-class UsersResource_ extends Resource {
+class UsersResource_ {
 
-  UsersBlogsResource_ _blogs;
-  UsersBlogsResource_ get blogs => _blogs;
+  final Client _client;
 
-  UsersResource_(Client client) : super(client) {
-  _blogs = new UsersBlogsResource_(client);
-  }
+  final UsersBlogsResource_ blogs;
+
+  UsersResource_(Client client) :
+      _client = client,
+      blogs = new UsersBlogsResource_(client);
 
   /**
    * Gets one user by id.
@@ -345,10 +354,12 @@ class UsersResource_ extends Resource {
   }
 }
 
-class UsersBlogsResource_ extends Resource {
+class UsersBlogsResource_ {
 
-  UsersBlogsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  UsersBlogsResource_(Client client) :
+      _client = client;
 
   /**
    * Retrieves a list of blogs, possibly filtered.

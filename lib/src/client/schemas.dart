@@ -1,4 +1,4 @@
-part of blogger_v2_api_client;
+part of blogger_v2_api;
 
 class Blog {
 
@@ -41,11 +41,7 @@ class Blog {
       description = json["description"];
     }
     if (json.containsKey("id")) {
-      if(json["id"] is core.String){
-        id = core.int.parse(json["id"]);
-      }else{
-        id = json["id"];
-      }
+      id = (json["id"] is core.String) ? core.int.parse(json["id"]) : json["id"];
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -122,44 +118,6 @@ class Blog {
 
 }
 
-/** The container of pages in this blog. */
-class BlogPages {
-
-  /** The URL of the container for pages in this blog. */
-  core.String selfLink;
-
-  /** The count of pages in this blog. */
-  core.int totalItems;
-
-  /** Create new BlogPages from JSON data */
-  BlogPages.fromJson(core.Map json) {
-    if (json.containsKey("selfLink")) {
-      selfLink = json["selfLink"];
-    }
-    if (json.containsKey("totalItems")) {
-      totalItems = json["totalItems"];
-    }
-  }
-
-  /** Create JSON Object for BlogPages */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (selfLink != null) {
-      output["selfLink"] = selfLink;
-    }
-    if (totalItems != null) {
-      output["totalItems"] = totalItems;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of BlogPages */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
 /** The locale this Blog is set to. */
 class BlogLocale {
 
@@ -203,6 +161,44 @@ class BlogLocale {
   }
 
   /** Return String representation of BlogLocale */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
+/** The container of pages in this blog. */
+class BlogPages {
+
+  /** The URL of the container for pages in this blog. */
+  core.String selfLink;
+
+  /** The count of pages in this blog. */
+  core.int totalItems;
+
+  /** Create new BlogPages from JSON data */
+  BlogPages.fromJson(core.Map json) {
+    if (json.containsKey("selfLink")) {
+      selfLink = json["selfLink"];
+    }
+    if (json.containsKey("totalItems")) {
+      totalItems = json["totalItems"];
+    }
+  }
+
+  /** Create JSON Object for BlogPages */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (selfLink != null) {
+      output["selfLink"] = selfLink;
+    }
+    if (totalItems != null) {
+      output["totalItems"] = totalItems;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of BlogPages */
   core.String toString() => JSON.stringify(this.toJson());
 
 }
@@ -256,10 +252,7 @@ class BlogList {
   /** Create new BlogList from JSON data */
   BlogList.fromJson(core.Map json) {
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Blog.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Blog.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -271,10 +264,7 @@ class BlogList {
     var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -332,11 +322,7 @@ class Comment {
       content = json["content"];
     }
     if (json.containsKey("id")) {
-      if(json["id"] is core.String){
-        id = core.int.parse(json["id"]);
-      }else{
-        id = json["id"];
-      }
+      id = (json["id"] is core.String) ? core.int.parse(json["id"]) : json["id"];
     }
     if (json.containsKey("inReplyTo")) {
       inReplyTo = new CommentInReplyTo.fromJson(json["inReplyTo"]);
@@ -397,72 +383,6 @@ class Comment {
   }
 
   /** Return String representation of Comment */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-/** Data about the post containing this comment. */
-class CommentPost {
-
-  /** The identifier of the post containing this comment. */
-  core.int id;
-
-  /** Create new CommentPost from JSON data */
-  CommentPost.fromJson(core.Map json) {
-    if (json.containsKey("id")) {
-      if(json["id"] is core.String){
-        id = core.int.parse(json["id"]);
-      }else{
-        id = json["id"];
-      }
-    }
-  }
-
-  /** Create JSON Object for CommentPost */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (id != null) {
-      output["id"] = id;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of CommentPost */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-/** Data about the comment this is in reply to. */
-class CommentInReplyTo {
-
-  /** The identified of the parent of this comment. */
-  core.int id;
-
-  /** Create new CommentInReplyTo from JSON data */
-  CommentInReplyTo.fromJson(core.Map json) {
-    if (json.containsKey("id")) {
-      if(json["id"] is core.String){
-        id = core.int.parse(json["id"]);
-      }else{
-        id = json["id"];
-      }
-    }
-  }
-
-  /** Create JSON Object for CommentInReplyTo */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (id != null) {
-      output["id"] = id;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of CommentInReplyTo */
   core.String toString() => JSON.stringify(this.toJson());
 
 }
@@ -561,11 +481,7 @@ class CommentBlog {
   /** Create new CommentBlog from JSON data */
   CommentBlog.fromJson(core.Map json) {
     if (json.containsKey("id")) {
-      if(json["id"] is core.String){
-        id = core.int.parse(json["id"]);
-      }else{
-        id = json["id"];
-      }
+      id = (json["id"] is core.String) ? core.int.parse(json["id"]) : json["id"];
     }
   }
 
@@ -581,6 +497,64 @@ class CommentBlog {
   }
 
   /** Return String representation of CommentBlog */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
+/** Data about the comment this is in reply to. */
+class CommentInReplyTo {
+
+  /** The identified of the parent of this comment. */
+  core.int id;
+
+  /** Create new CommentInReplyTo from JSON data */
+  CommentInReplyTo.fromJson(core.Map json) {
+    if (json.containsKey("id")) {
+      id = (json["id"] is core.String) ? core.int.parse(json["id"]) : json["id"];
+    }
+  }
+
+  /** Create JSON Object for CommentInReplyTo */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (id != null) {
+      output["id"] = id;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of CommentInReplyTo */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
+/** Data about the post containing this comment. */
+class CommentPost {
+
+  /** The identifier of the post containing this comment. */
+  core.int id;
+
+  /** Create new CommentPost from JSON data */
+  CommentPost.fromJson(core.Map json) {
+    if (json.containsKey("id")) {
+      id = (json["id"] is core.String) ? core.int.parse(json["id"]) : json["id"];
+    }
+  }
+
+  /** Create JSON Object for CommentPost */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (id != null) {
+      output["id"] = id;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of CommentPost */
   core.String toString() => JSON.stringify(this.toJson());
 
 }
@@ -602,10 +576,7 @@ class CommentList {
   /** Create new CommentList from JSON data */
   CommentList.fromJson(core.Map json) {
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Comment.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Comment.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -623,10 +594,7 @@ class CommentList {
     var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -690,11 +658,7 @@ class Page {
       content = json["content"];
     }
     if (json.containsKey("id")) {
-      if(json["id"] is core.String){
-        id = core.int.parse(json["id"]);
-      }else{
-        id = json["id"];
-      }
+      id = (json["id"] is core.String) ? core.int.parse(json["id"]) : json["id"];
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -755,39 +719,6 @@ class Page {
   }
 
   /** Return String representation of Page */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-/** Data about the blog containing this Page. */
-class PageBlog {
-
-  /** The identifier of the blog containing this page. */
-  core.int id;
-
-  /** Create new PageBlog from JSON data */
-  PageBlog.fromJson(core.Map json) {
-    if (json.containsKey("id")) {
-      if(json["id"] is core.String){
-        id = core.int.parse(json["id"]);
-      }else{
-        id = json["id"];
-      }
-    }
-  }
-
-  /** Create JSON Object for PageBlog */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (id != null) {
-      output["id"] = id;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of PageBlog */
   core.String toString() => JSON.stringify(this.toJson());
 
 }
@@ -877,6 +808,35 @@ class PageAuthorImage {
 
 }
 
+/** Data about the blog containing this Page. */
+class PageBlog {
+
+  /** The identifier of the blog containing this page. */
+  core.int id;
+
+  /** Create new PageBlog from JSON data */
+  PageBlog.fromJson(core.Map json) {
+    if (json.containsKey("id")) {
+      id = (json["id"] is core.String) ? core.int.parse(json["id"]) : json["id"];
+    }
+  }
+
+  /** Create JSON Object for PageBlog */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (id != null) {
+      output["id"] = id;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of PageBlog */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
 class PageList {
 
   /** The list of Pages for a Blog. */
@@ -888,10 +848,7 @@ class PageList {
   /** Create new PageList from JSON data */
   PageList.fromJson(core.Map json) {
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Page.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Page.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -903,10 +860,7 @@ class PageList {
     var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -970,20 +924,13 @@ class Post {
       content = json["content"];
     }
     if (json.containsKey("id")) {
-      if(json["id"] is core.String){
-        id = core.int.parse(json["id"]);
-      }else{
-        id = json["id"];
-      }
+      id = (json["id"] is core.String) ? core.int.parse(json["id"]) : json["id"];
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
     }
     if (json.containsKey("labels")) {
-      labels = [];
-      json["labels"].forEach((item) {
-        labels.add(item);
-      });
+      labels = json["labels"].toList();
     }
     if (json.containsKey("published")) {
       published = json["published"];
@@ -1025,10 +972,7 @@ class Post {
       output["kind"] = kind;
     }
     if (labels != null) {
-      output["labels"] = new core.List();
-      labels.forEach((item) {
-        output["labels"].add(item);
-      });
+      output["labels"] = labels.toList();
     }
     if (published != null) {
       output["published"] = published;
@@ -1053,39 +997,6 @@ class Post {
   }
 
   /** Return String representation of Post */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-/** Data about the blog containing this Post. */
-class PostBlog {
-
-  /** The identifier of the Blog that contains this Post. */
-  core.int id;
-
-  /** Create new PostBlog from JSON data */
-  PostBlog.fromJson(core.Map json) {
-    if (json.containsKey("id")) {
-      if(json["id"] is core.String){
-        id = core.int.parse(json["id"]);
-      }else{
-        id = json["id"];
-      }
-    }
-  }
-
-  /** Create JSON Object for PostBlog */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (id != null) {
-      output["id"] = id;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of PostBlog */
   core.String toString() => JSON.stringify(this.toJson());
 
 }
@@ -1175,6 +1086,35 @@ class PostAuthorImage {
 
 }
 
+/** Data about the blog containing this Post. */
+class PostBlog {
+
+  /** The identifier of the Blog that contains this Post. */
+  core.int id;
+
+  /** Create new PostBlog from JSON data */
+  PostBlog.fromJson(core.Map json) {
+    if (json.containsKey("id")) {
+      id = (json["id"] is core.String) ? core.int.parse(json["id"]) : json["id"];
+    }
+  }
+
+  /** Create JSON Object for PostBlog */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (id != null) {
+      output["id"] = id;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of PostBlog */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
 /** The container of comments on this Post. */
 class PostReplies {
 
@@ -1190,11 +1130,7 @@ class PostReplies {
       selfLink = json["selfLink"];
     }
     if (json.containsKey("totalItems")) {
-      if(json["totalItems"] is core.String){
-        totalItems = core.int.parse(json["totalItems"]);
-      }else{
-        totalItems = json["totalItems"];
-      }
+      totalItems = (json["totalItems"] is core.String) ? core.int.parse(json["totalItems"]) : json["totalItems"];
     }
   }
 
@@ -1234,10 +1170,7 @@ class PostList {
   /** Create new PostList from JSON data */
   PostList.fromJson(core.Map json) {
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Post.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Post.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -1255,10 +1188,7 @@ class PostList {
     var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -1454,3 +1384,16 @@ class UserLocale {
 
 }
 
+core.Map _mapMap(core.Map source, [core.Object convert(core.Object source) = null]) {
+  assert(source != null);
+  var result = new dart_collection.LinkedHashMap();
+  source.forEach((core.String key, value) {
+    assert(key != null);
+    if(convert == null) {
+      result[key] = value;
+    } else {
+      result[key] = convert(value);
+    }
+  });
+  return result;
+}
