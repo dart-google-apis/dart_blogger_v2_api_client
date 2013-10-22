@@ -114,7 +114,7 @@ class Blog {
   }
 
   /** Return String representation of Blog */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -161,7 +161,7 @@ class BlogLocale {
   }
 
   /** Return String representation of BlogLocale */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -199,7 +199,7 @@ class BlogPages {
   }
 
   /** Return String representation of BlogPages */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -237,7 +237,7 @@ class BlogPosts {
   }
 
   /** Return String representation of BlogPosts */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -274,7 +274,7 @@ class BlogList {
   }
 
   /** Return String representation of BlogList */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -383,7 +383,7 @@ class Comment {
   }
 
   /** Return String representation of Comment */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -439,7 +439,7 @@ class CommentAuthor {
   }
 
   /** Return String representation of CommentAuthor */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -468,7 +468,7 @@ class CommentAuthorImage {
   }
 
   /** Return String representation of CommentAuthorImage */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -497,7 +497,7 @@ class CommentBlog {
   }
 
   /** Return String representation of CommentBlog */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -526,7 +526,7 @@ class CommentInReplyTo {
   }
 
   /** Return String representation of CommentInReplyTo */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -555,7 +555,7 @@ class CommentPost {
   }
 
   /** Return String representation of CommentPost */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -610,7 +610,7 @@ class CommentList {
   }
 
   /** Return String representation of CommentList */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -719,7 +719,7 @@ class Page {
   }
 
   /** Return String representation of Page */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -775,7 +775,7 @@ class PageAuthor {
   }
 
   /** Return String representation of PageAuthor */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -804,7 +804,7 @@ class PageAuthorImage {
   }
 
   /** Return String representation of PageAuthorImage */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -833,7 +833,7 @@ class PageBlog {
   }
 
   /** Return String representation of PageBlog */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -870,7 +870,7 @@ class PageList {
   }
 
   /** Return String representation of PageList */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -997,7 +997,7 @@ class Post {
   }
 
   /** Return String representation of Post */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1053,7 +1053,7 @@ class PostAuthor {
   }
 
   /** Return String representation of PostAuthor */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1082,7 +1082,7 @@ class PostAuthorImage {
   }
 
   /** Return String representation of PostAuthorImage */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1111,7 +1111,7 @@ class PostBlog {
   }
 
   /** Return String representation of PostBlog */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1149,7 +1149,7 @@ class PostReplies {
   }
 
   /** Return String representation of PostReplies */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1204,7 +1204,7 @@ class PostList {
   }
 
   /** Return String representation of PostList */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1304,7 +1304,7 @@ class User {
   }
 
   /** Return String representation of User */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1333,7 +1333,7 @@ class UserBlogs {
   }
 
   /** Return String representation of UserBlogs */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1380,7 +1380,7 @@ class UserLocale {
   }
 
   /** Return String representation of UserLocale */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
